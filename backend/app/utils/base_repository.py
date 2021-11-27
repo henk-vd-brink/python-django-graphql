@@ -21,7 +21,7 @@ class BaseRepository:
             query_object = getattr(self, f"_filter_by_{filter_type}")(query_object, filter_value)
         return query_object.all()
             
-    def filter_pipeline(self, first=None, offset=None, **kwargs):
+    def get(self, first=None, offset=None, **kwargs):
         query_object = self._get_query_object()
         
         results = self._handle_kwargs(query_object, **kwargs)
